@@ -1,0 +1,46 @@
+Budget\BudgetBundle\Entity\Resource:
+    type: entity
+    table: resource
+    indexes:
+        fk_resource_resource_category1_idx:
+            columns:
+                - resource_category_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        resourceDate:
+            type: date
+            nullable: false
+            column: resource_date
+        amount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+    manyToOne:
+        resourceCategory:
+            targetEntity: ResourceCategory
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                resource_category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

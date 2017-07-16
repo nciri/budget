@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Feescategories list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for feesCategory in feesCategories %}
+            <tr>
+                <td><a href="{{ path('feescategory_show', { 'id': feesCategory.id }) }}">{{ feesCategory.id }}</a></td>
+                <td>{{ feesCategory.title }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('feescategory_show', { 'id': feesCategory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('feescategory_edit', { 'id': feesCategory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('feescategory_new') }}">Create a new feesCategory</a>
+        </li>
+    </ul>
+{% endblock %}

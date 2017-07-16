@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Goalcalendar</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ goalCalendar.id }}</td>
+            </tr>
+            <tr>
+                <th>Milestonedate</th>
+                <td>{% if goalCalendar.milestoneDate %}{{ goalCalendar.milestoneDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Milestoneamount</th>
+                <td>{{ goalCalendar.milestoneAmount }}</td>
+            </tr>
+            <tr>
+                <th>Milestonedue</th>
+                <td>{{ goalCalendar.milestoneDue }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('goalcalendar_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('goalcalendar_edit', { 'id': goalCalendar.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

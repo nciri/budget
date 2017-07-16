@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fees list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Feedate</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fee in fees %}
+            <tr>
+                <td><a href="{{ path('fee_show', { 'id': fee.id }) }}">{{ fee.id }}</a></td>
+                <td>{{ fee.title }}</td>
+                <td>{% if fee.feeDate %}{{ fee.feeDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ fee.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fee_show', { 'id': fee.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fee_edit', { 'id': fee.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fee_new') }}">Create a new fee</a>
+        </li>
+    </ul>
+{% endblock %}

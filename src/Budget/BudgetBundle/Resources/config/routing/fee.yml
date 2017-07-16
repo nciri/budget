@@ -1,0 +1,24 @@
+fee_index:
+    path:     /
+    defaults: { _controller: "BudgetBundle:Fee:index" }
+    methods:  GET
+
+fee_show:
+    path:     /{id}/show
+    defaults: { _controller: "BudgetBundle:Fee:show" }
+    methods:  GET
+
+fee_new:
+    path:     /new
+    defaults: { _controller: "BudgetBundle:Fee:new" }
+    methods:  [GET, POST]
+
+fee_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BudgetBundle:Fee:edit" }
+    methods:  [GET, POST]
+
+fee_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BudgetBundle:Fee:delete" }
+    methods:  DELETE

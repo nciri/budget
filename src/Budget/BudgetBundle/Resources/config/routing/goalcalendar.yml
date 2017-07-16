@@ -1,0 +1,24 @@
+goalcalendar_index:
+    path:     /
+    defaults: { _controller: "BudgetBundle:GoalCalendar:index" }
+    methods:  GET
+
+goalcalendar_show:
+    path:     /{id}/show
+    defaults: { _controller: "BudgetBundle:GoalCalendar:show" }
+    methods:  GET
+
+goalcalendar_new:
+    path:     /new
+    defaults: { _controller: "BudgetBundle:GoalCalendar:new" }
+    methods:  [GET, POST]
+
+goalcalendar_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BudgetBundle:GoalCalendar:edit" }
+    methods:  [GET, POST]
+
+goalcalendar_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BudgetBundle:GoalCalendar:delete" }
+    methods:  DELETE

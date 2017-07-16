@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Goals list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Deadline</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for goal in goals %}
+            <tr>
+                <td><a href="{{ path('goal_show', { 'id': goal.id }) }}">{{ goal.id }}</a></td>
+                <td>{{ goal.title }}</td>
+                <td>{% if goal.deadline %}{{ goal.deadline|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ goal.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('goal_show', { 'id': goal.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('goal_edit', { 'id': goal.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('goal_new') }}">Create a new goal</a>
+        </li>
+    </ul>
+{% endblock %}

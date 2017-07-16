@@ -1,0 +1,49 @@
+Budget\BudgetBundle\Entity\GoalCalendar:
+    type: entity
+    table: goal_calendar
+    indexes:
+        fk_goal_calendar_goal1_idx:
+            columns:
+                - goal_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        milestoneDate:
+            type: date
+            nullable: false
+            column: milestone_date
+        milestoneAmount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: milestone_amount
+        milestoneDue:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+            column: milestone_due
+    manyToOne:
+        goal:
+            targetEntity: Goal
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                goal_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

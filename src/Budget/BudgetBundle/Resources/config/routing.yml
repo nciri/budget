@@ -1,0 +1,36 @@
+budget_fee:
+    resource: "@BudgetBundle/Resources/config/routing/fee.yml"
+    prefix:   /fee
+    
+budget_feescateogry:
+    resource: "@BudgetBundle/Resources/config/routing/feescategory.yml"
+    prefix:   /feescategory
+
+budget_goal:
+    resource: "@BudgetBundle/Resources/config/routing/goal.yml"
+    prefix:   /goal
+
+budget_goalcalendar:
+    resource: "@BudgetBundle/Resources/config/routing/goalcalendar.yml"
+    prefix:   /goalcalendar
+
+budget_resource:
+    resource: "@BudgetBundle/Resources/config/routing/resource.yml"
+    prefix:   /resource
+
+budget_resourcecategory:
+    resource: "@BudgetBundle/Resources/config/routing/resourcecategory.yml"
+    prefix:   /resourcecategory
+
+budget_spending:
+    resource: "@BudgetBundle/Resources/config/routing/spending.yml"
+    prefix:   /spending
+
+budget_spenfingcategory:
+    resource: "@BudgetBundle/Resources/config/routing/spendingcategory.yml"
+    prefix:   /spendingcategory
+
+
+budget_homepage:
+    path:     /
+    defaults: { _controller: BudgetBundle:Default:index }

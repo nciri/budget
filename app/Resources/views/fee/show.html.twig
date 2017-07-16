@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Fee</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fee.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ fee.title }}</td>
+            </tr>
+            <tr>
+                <th>Feedate</th>
+                <td>{% if fee.feeDate %}{{ fee.feeDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ fee.amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('fee_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('fee_edit', { 'id': fee.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

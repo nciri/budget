@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resource</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ resource.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ resource.title }}</td>
+            </tr>
+            <tr>
+                <th>Resourcedate</th>
+                <td>{% if resource.resourceDate %}{{ resource.resourceDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ resource.amount }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resource_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('resource_edit', { 'id': resource.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

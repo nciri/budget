@@ -1,0 +1,30 @@
+Budget\BudgetBundle\Entity\Goal:
+    type: entity
+    table: goal
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        deadline:
+            type: date
+            nullable: false
+        amount:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+            options:
+                default: '0'
+    lifecycleCallbacks: {  }

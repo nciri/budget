@@ -1,0 +1,20 @@
+Budget\BudgetBundle\Entity\SpendingCategory:
+    type: entity
+    table: spending_category
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+feescategory_index:
+    path:     /
+    defaults: { _controller: "BudgetBundle:FeesCategory:index" }
+    methods:  GET
+
+feescategory_show:
+    path:     /{id}/show
+    defaults: { _controller: "BudgetBundle:FeesCategory:show" }
+    methods:  GET
+
+feescategory_new:
+    path:     /new
+    defaults: { _controller: "BudgetBundle:FeesCategory:new" }
+    methods:  [GET, POST]
+
+feescategory_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BudgetBundle:FeesCategory:edit" }
+    methods:  [GET, POST]
+
+feescategory_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BudgetBundle:FeesCategory:delete" }
+    methods:  DELETE

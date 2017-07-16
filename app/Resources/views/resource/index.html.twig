@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Resources list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Resourcedate</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for resource in resources %}
+            <tr>
+                <td><a href="{{ path('resource_show', { 'id': resource.id }) }}">{{ resource.id }}</a></td>
+                <td>{{ resource.title }}</td>
+                <td>{% if resource.resourceDate %}{{ resource.resourceDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ resource.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('resource_show', { 'id': resource.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('resource_edit', { 'id': resource.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('resource_new') }}">Create a new resource</a>
+        </li>
+    </ul>
+{% endblock %}

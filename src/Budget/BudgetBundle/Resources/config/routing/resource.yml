@@ -1,0 +1,24 @@
+resource_index:
+    path:     /
+    defaults: { _controller: "BudgetBundle:Resource:index" }
+    methods:  GET
+
+resource_show:
+    path:     /{id}/show
+    defaults: { _controller: "BudgetBundle:Resource:show" }
+    methods:  GET
+
+resource_new:
+    path:     /new
+    defaults: { _controller: "BudgetBundle:Resource:new" }
+    methods:  [GET, POST]
+
+resource_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BudgetBundle:Resource:edit" }
+    methods:  [GET, POST]
+
+resource_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BudgetBundle:Resource:delete" }
+    methods:  DELETE

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Goalcalendars list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Milestonedate</th>
+                <th>Milestoneamount</th>
+                <th>Milestonedue</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for goalCalendar in goalCalendars %}
+            <tr>
+                <td><a href="{{ path('goalcalendar_show', { 'id': goalCalendar.id }) }}">{{ goalCalendar.id }}</a></td>
+                <td>{% if goalCalendar.milestoneDate %}{{ goalCalendar.milestoneDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ goalCalendar.milestoneAmount }}</td>
+                <td>{{ goalCalendar.milestoneDue }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('goalcalendar_show', { 'id': goalCalendar.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('goalcalendar_edit', { 'id': goalCalendar.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('goalcalendar_new') }}">Create a new goalCalendar</a>
+        </li>
+    </ul>
+{% endblock %}

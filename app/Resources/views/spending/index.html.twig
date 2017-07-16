@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Spendings list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Spendingdate</th>
+                <th>Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for spending in spendings %}
+            <tr>
+                <td><a href="{{ path('spending_show', { 'id': spending.id }) }}">{{ spending.id }}</a></td>
+                <td>{{ spending.title }}</td>
+                <td>{% if spending.spendingDate %}{{ spending.spendingDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ spending.amount }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('spending_show', { 'id': spending.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('spending_edit', { 'id': spending.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('spending_new') }}">Create a new spending</a>
+        </li>
+    </ul>
+{% endblock %}
